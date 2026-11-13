@@ -1,0 +1,22 @@
+# ---- 构建产物 ----
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+
+# ---- 部署目录（AfterBuild 拷贝，不入库）----
+deploy/
+build/
+*.zip
+
+# ---- 本地调试 ----
+*.log
+Debug/
+Release/
+
+# ---- 系统 ----
+Thumbs.db
+desktop.ini
+.DS_Store
