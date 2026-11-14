@@ -55,12 +55,15 @@
 
 ---
 
-## 安装
+## 安装（玩家）
 
-1. 装 **SMAPI 4.0+**（本机为 4.2.1）。
+1. 装 **SMAPI 4.0+**（开发机为 4.2.1）。
 2. 需要 **Stardew Valley 1.6.15+**。
-3. 把整个 `LifeWithWifeAndChild` 目录放进 `Mods\`。
-4. 启动游戏，控制台应看到 `[LWWC] loaded v1.1.1`。
+3. 到 [Releases](../../releases) 下载最新的 `LifeWithWifeAndChild-<版本>.zip`。
+4. 解压，把里面的 **`LifeWithWifeAndChild` 文件夹整个**放进游戏的 `Mods\`（不要只放 dll）。
+5. 启动游戏，SMAPI 控制台应看到 `[LWWC] loaded v1.1.1`。
+
+> 装好后 `manifest.json` 里已带 `UpdateKeys`，SMAPI 会通过 GitHub Releases 检查更新。
 
 可选：装 **Generic Mod Config Menu** 可以在游戏内调配置（不装也能改 `config.json`）。
 
@@ -80,6 +83,27 @@ dotnet build
 - 不开 `PublishSingleFile` / `ReadyToRun`。
 
 调试循环：改代码 → `dotnet build` → 启动游戏 → 在 SMAPI 控制台过滤 `[LWWC]`。
+
+## 打包发布
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\package.ps1
+```
+
+产物：`dist\LifeWithWifeAndChild-<版本>.zip`，结构是
+
+```
+LifeWithWifeAndChild/
+├─ manifest.json
+├─ LifeWithWifeAndChild.dll
+├─ README.md
+└─ i18n/{default,zh-CN}.json
+```
+
+脚本会 `dotnet build -c Release`，然后校验 zip 里必须有 `manifest.json` / dll / i18n，且路径用正斜杠
+（`Compress-Archive` 在 PowerShell 5.1 上会写出反斜杠路径，部分解压工具会解成怪名字，所以这里手写条目）。
+
+发布流程：跑脚本 → 在 GitHub 建一个 tag 为 `v<版本>` 的 Release → 把 zip 拖进去。
 
 ---
 
