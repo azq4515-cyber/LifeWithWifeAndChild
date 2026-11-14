@@ -104,7 +104,17 @@ LifeWithWifeAndChild/
 脚本会 `dotnet build -c Release`，然后校验 zip 里必须有 `manifest.json` / dll / i18n，且路径用正斜杠
 （`Compress-Archive` 在 PowerShell 5.1 上会写出反斜杠路径，部分解压工具会解成怪名字，所以这里手写条目）。
 
-发布流程：跑脚本 → 在 GitHub 建一个 tag 为 `v<版本>` 的 Release → 把 zip 拖进去。
+发布流程：跑脚本 → 在 GitHub 建一个 tag 为 `1.1.1`（**不带 `v` 前缀**）的 Release → 把 zip 拖进去。
+
+> tag 不要写成 `v1.1.1`：`manifest.json` 里的 `UpdateKeys` 走 SMAPI 的更新检查，
+> 而 SMAPI 的版本解析器（`SemanticVersion.TryParse`）**不接受 `v` 前缀**，实测 `v1.1.1` 解析失败。
+
+有 `gh` CLI 的话更简单：
+
+```powershell
+pwsh -File scripts\package.ps1
+gh release create 1.1.2 dist\LifeWithWifeAndChild-1.1.2.zip --title "1.1.2" --notes-file <说明.md>
+```
 
 ---
 
