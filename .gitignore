@@ -6,7 +6,11 @@ obj/
 .vs/
 .idea/
 
-# ---- 部署目录（AfterBuild 拷贝，不入库）----
+# ---- 部署产物（AfterBuild 把 dll 拷到仓库根，不入库）----
+LifeWithWifeAndChild.dll
+LifeWithWifeAndChild.pdb
+# SMAPI 首次启动时自动生成的玩家配置
+config.json
 deploy/
 build/
 *.zip

@@ -1,0 +1,12 @@
+{
+    "Name":  "Life with Wife and Child",
+    "Author":  "LWWC",
+    "Version":  "1.1.1",
+    "Description":  "孩子真正长大：七级成长；春秋两季跟着 Penny 上课、坐在自己的座位上；少年起周末替你收酿酒桶；成年后留在农场当副手。",
+    "UniqueID":  "LWWC.LifeWithWifeAndChild",
+    "EntryDll":  "LifeWithWifeAndChild.dll",
+    "MinimumApiVersion":  "4.0.0",
+    "UpdateKeys":  [
+
+                   ]
+}
