@@ -10,6 +10,7 @@
 #          i18n\default.json
 #          i18n\zh-CN.json
 #          README.md
+#          LICENSE
 #
 # 不打包：pdb（调试符号）、config.json（每个玩家自己生成）、源码、bin/obj。
 #
@@ -54,6 +55,7 @@ Copy-Item (Join-Path $root "manifest.json") $stage
 Copy-Item (Join-Path $root "README.md") $stage
 Copy-Item (Join-Path $root "i18n\default.json") (Join-Path $stage "i18n")
 Copy-Item (Join-Path $root "i18n\zh-CN.json") (Join-Path $stage "i18n")
+Copy-Item (Join-Path $root "LICENSE") $stage
 
 Write-Host "== 4. 压缩 =="
 Add-Type -AssemblyName System.IO.Compression

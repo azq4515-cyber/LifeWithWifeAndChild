@@ -97,6 +97,7 @@ LifeWithWifeAndChild/
 ├─ manifest.json
 ├─ LifeWithWifeAndChild.dll
 ├─ README.md
+├─ LICENSE
 └─ i18n/{default,zh-CN}.json
 ```
 
@@ -168,6 +169,12 @@ LifeWithWifeAndChild/
 - [docs/milestones.md](docs/milestones.md) — 实现记录：做了什么、与方案的偏差、反编译确认的 API 事实
 - [docs/balance.md](docs/balance.md) — 平衡数值表
 - [docs/test-plan.md](docs/test-plan.md) — 手工回归清单
+
+---
+
+## 许可
+
+[MIT](LICENSE) © 2026 azq4515-cyber —— 可以自由使用、修改、再分发（保留版权声明即可）。
 
 ---
 
